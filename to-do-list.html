@@ -9,21 +9,6 @@
 
     <style>
         /* Add your styles here */
-        .task {
-            display: flex;
-            align-items: center;
-            margin-bottom: 8px;
-        }
-
-        .checkmark, .delete {
-            cursor: pointer;
-            margin-right: 8px;
-        }
-
-        .completed {
-            text-decoration: line-through;
-            opacity: 0.7;
-        }
     </style>
 </head>
 <body class="light-mode">
@@ -41,18 +26,8 @@
             <li><a href="settings.html">Settings</a></li>
         </ul>
     </nav>
-    <section id="to-do-list-content">
-        <!-- To-Do List container -->
-        <ul id="task-list">
-            <!-- Existing tasks will go here -->
-        </ul>
-
-        <!-- Form for adding tasks -->
-        <form id="task-form">
-            <label for="task">New Task:</label>
-            <input type="text" id="task" required>
-            <button type="button" onclick="addTask()">Add Task</button>
-        </form>
+    <section>
+        <!-- Your to-do list content goes here -->
     </section>
     <footer>
         <p>&copy; 2024 5K001 (Skool)</p>
@@ -61,11 +36,9 @@
         // Call setUsername function on page load
         setUsername();
 
-        // Function to add a new task
-        function addTask() {
-            // Similar to the previous to-do list example
-            // ... (Add the necessary code to handle task addition)
-        }
+        // Load tasks on page load
+        const tasks = loadTasks();
+        // Use the tasks array as needed in your to-do list page
     </script>
 </body>
 </html>
