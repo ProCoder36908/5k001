@@ -49,7 +49,8 @@
             const taskText = newTaskInput.value.trim();
 
             if (taskText !== '') {
-                tasks.push(taskText);
+                const randomEmoji = getRandomEmoji();
+                tasks.push({ text: taskText, emoji: randomEmoji });
                 saveTasks(tasks);
                 displayTasks(tasks);
                 newTaskInput.value = '';
@@ -60,16 +61,13 @@
         function displayTasks(tasks) {
             const tasksList = document.getElementById('tasks-list');
             tasksList.innerHTML = '';
-            
+
             tasks.forEach((task, index) => {
                 const listItem = document.createElement('li');
-                listItem.textContent = task;
+                listItem.innerHTML = `${task.text} ${task.emoji} 
+                <button onclick="removeTask(${index})">&#10006;</button>
+                <button onclick="completeTask(${index})">&#10004;</button>`;
 
-                const removeButton = document.createElement('button');
-                removeButton.textContent = 'Remove';
-                removeButton.onclick = () => removeTask(index);
-
-                listItem.appendChild(removeButton);
                 tasksList.appendChild(listItem);
             });
         }
@@ -79,6 +77,20 @@
             tasks.splice(index, 1);
             saveTasks(tasks);
             displayTasks(tasks);
+        }
+
+        // Function to mark a task as complete
+        function completeTask(index) {
+            tasks[index].completed = true;
+            saveTasks(tasks);
+            displayTasks(tasks);
+        }
+
+        // Function to get a random emoji
+        function getRandomEmoji() {
+            const emojis = ['😊', '🚀', '📚', '✅', '🎉', '💡'];
+            const randomIndex = Math.floor(Math.random() * emojis.length);
+            return emojis[randomIndex];
         }
     </script>
 </body>
