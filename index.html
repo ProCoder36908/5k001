@@ -18,11 +18,24 @@
         <button onclick="location.href='settings.html'">Go to Settings</button>
     </nav>
     <section id="dashboard-content">
-        <!-- Dashboard content goes here -->
-        <p>This is the main dashboard. Add your content and features here.</p>
+        <h2>Notes</h2>
+        <!-- Add a textarea for adding and displaying notes -->
+        <textarea id="notes" rows="10" cols="50" placeholder="Write your notes here..."></textarea>
+        <button onclick="saveNotes()">Save Notes</button>
     </section>
     <footer>
         <p>&copy; 2024 5K001 (Skool)</p>
     </footer>
+
+    <script>
+        // Load saved notes on page load
+        document.getElementById("notes").value = localStorage.getItem("notes") || "";
+
+        function saveNotes() {
+            var notesContent = document.getElementById("notes").value;
+            localStorage.setItem("notes", notesContent);
+            alert("Notes saved!");
+        }
+    </script>
 </body>
 </html>
