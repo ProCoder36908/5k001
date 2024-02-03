@@ -14,7 +14,8 @@
 <body class="light-mode">
     <header>
         <h1>Dashboard</h1>
-        <p id="username-display">Welcome, <span id="user-display">User</span>!</p>
+        <!-- Display welcome message with the username -->
+        <p id="welcome-message"></p>
         <button onclick="toggleMode()">Toggle Mode</button>
     </header>
     <nav>
@@ -32,8 +33,15 @@
         <!-- Notes Section -->
         <div id="notes-section">
             <h2>My Notes</h2>
-            <p>This is where your notes will go.</p>
-            <!-- Add more content as needed -->
+            <ul id="notes-list">
+                <!-- Existing notes will go here -->
+            </ul>
+            <!-- Form for adding notes -->
+            <form id="note-form">
+                <label for="note">Add a Note:</label>
+                <input type="text" id="note" required>
+                <button type="button" onclick="addNote()">Add Note</button>
+            </form>
         </div>
     </section>
     <footer>
@@ -42,6 +50,32 @@
     <script>
         // Call setUsername function on page load
         setUsername();
+
+        // Function to add a new note
+        function addNote() {
+            const noteInput = document.getElementById('note');
+            const notesList = document.getElementById('notes-list');
+
+            const newNote = noteInput.value.trim();
+            if (newNote !== '') {
+                // Create a new list item
+                const listItem = document.createElement('li');
+                listItem.textContent = newNote;
+
+                // Append the new note to the list
+                notesList.appendChild(listItem);
+
+                // Clear the input field
+                noteInput.value = '';
+            }
+        }
+
+        // Get the username from localStorage and display a welcome message
+        const storedUsername = localStorage.getItem('username');
+        const welcomeMessage = document.getElementById('welcome-message');
+        if (storedUsername) {
+            welcomeMessage.textContent = `Welcome, ${storedUsername}!`;
+        }
     </script>
 </body>
 </html>
