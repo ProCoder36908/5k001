@@ -25,6 +25,7 @@ nav {
     background-color: #eee;
     padding: 10px;
     text-align: center;
+    transition: background-color 0.3s;
 }
 
 nav ul {
@@ -36,20 +37,6 @@ nav ul {
 nav ul li {
     display: inline;
     margin-right: 10px;
-}
-
-section {
-    padding: 20px;
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
 }
 
 /* Light mode */
