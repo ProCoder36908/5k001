@@ -3,70 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5K001 (Skool) - Dashboard</title>
+    <title>5K001 (Skool) - Settings</title>
+    <script src="common.js"></script>
     <style>
-        /* Common styles for light and dark modes */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-
-        nav {
-            background-color: #eee;
-            padding: 10px;
-            text-align: center;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin-right: 10px;
-        }
-
-        section {
-            padding: 20px;
-        }
-
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-
-        /* Light mode */
-        .light-mode {
-            background-color: #fff;
-            color: #333;
-        }
-
-        /* Dark mode */
-        .dark-mode {
-            background-color: #333;
-            color: #fff;
-        }
+        /* Add your styles here */
     </style>
 </head>
 <body class="light-mode">
     <header>
-        <h1>Dashboard</h1>
+        <h1>Settings</h1>
         <p id="username-display">Welcome, <span id="user-display">User</span>!</p>
         <button onclick="toggleMode()">Toggle Mode</button>
     </header>
@@ -76,37 +21,21 @@
             <li><a href="calendar.html">Calendar</a></li>
             <li><a href="homework.html">Homework</a></li>
             <li><a href="to-do-list.html">To-Do List</a></li>
-            <li><a href="settings.html">Settings</a></li>
         </ul>
     </nav>
-    <section>
-        <!-- Your dashboard content goes here -->
+    <section id="settings-content">
+        <!-- Form for changing username and clearing data -->
+        <form id="settings-form">
+            <label for="username">Change Username:</label>
+            <input type="text" id="username" required>
+            <button type="button" onclick="changeUsername()">Change</button>
+
+            <br>
+
+            <label for="clear-data">Clear All Data:</label>
+            <button type="button" onclick="clearAllData()">Clear Data</button>
+        </form>
     </section>
     <footer>
         <p>&copy; 2024 5K001 (Skool)</p>
-    </footer>
-
-    <script>
-        // Function to toggle between light mode and dark mode
-        function toggleMode() {
-            const body = document.body;
-            body.classList.toggle('light-mode');
-            body.classList.toggle('dark-mode');
-        }
-
-        // Function to set the username on the homepage
-        function setUsername() {
-            const storedUsername = localStorage.getItem('username');
-            const usernameDisplay = document.getElementById('username-display');
-            const userDisplay = document.getElementById('user-display');
-
-            if (storedUsername) {
-                usernameDisplay.innerHTML = `Welcome, <span id="user-display">${storedUsername}</span>!`;
-            }
-        }
-
-        // Call the setUsername function on page load
-        setUsername();
-    </script>
-</body>
-</html>
+   
