@@ -3,39 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>5K001 (Skool) - Dashboard</title>
+    <script src="common.js"></script>
+    <style>
+        /* Add your styles here */
+    </style>
 </head>
-<body>
+<body class="light-mode">
     <header>
-        <h1>Welcome, [Username]!</h1>
+        <h1>Dashboard</h1>
+        <p id="username-display">Welcome, <span id="user-display">User</span>!</p>
+        <button onclick="toggleMode()">Toggle Mode</button>
     </header>
     <nav>
-        <!-- Add buttons for navigation -->
-        <button onclick="location.href='calendar.html'">Go to Calendar</button>
-        <button onclick="location.href='to-do-list.html'">Go to To-Do List</button>
-        <button onclick="location.href='homework.html'">Go to Homework</button>
-        <button onclick="location.href='settings.html'">Go to Settings</button>
+        <ul>
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="calendar.html">Calendar</a></li>
+            <li><a href="homework.html">Homework</a></li>
+            <li><a href="to-do-list.html">To-Do List</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ul>
     </nav>
-    <section id="dashboard-content">
-        <h2>Notes</h2>
-        <!-- Add a textarea for adding and displaying notes -->
-        <textarea id="notes" rows="10" cols="50" placeholder="Write your notes here..."></textarea>
-        <button onclick="saveNotes()">Save Notes</button>
+    <section>
+        <!-- Your dashboard content goes here -->
     </section>
     <footer>
         <p>&copy; 2024 5K001 (Skool)</p>
     </footer>
-
     <script>
-        // Load saved notes on page load
-        document.getElementById("notes").value = localStorage.getItem("notes") || "";
-
-        function saveNotes() {
-            var notesContent = document.getElementById("notes").value;
-            localStorage.setItem("notes", notesContent);
-            alert("Notes saved!");
-        }
+        // Call setUsername function on page load
+        setUsername();
     </script>
 </body>
 </html>
