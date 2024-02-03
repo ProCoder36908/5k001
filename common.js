@@ -3,11 +3,9 @@
 // Function to toggle between light and dark mode
 function toggleMode() {
     const body = document.body;
-    const nav = document.querySelector('nav');
 
-    // Toggle dark mode class on body and nav
+    // Toggle dark mode class on body
     body.classList.toggle('dark-mode');
-    nav.classList.toggle('dark-mode');
 }
 
 // Function to set the username in localStorage
