@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+    <title>5K001 (Skool) - Calendar</title>
+</head>
+<body>
+    <header>
+        <h1>Calendar</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="to-do-list.html">To-Do List</a></li>
+            <li><a href="homework.html">Homework</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ul>
+    </nav>
+    <section id="calendar-content">
+        <!-- Container for FullCalendar -->
+        <div id="calendar"></div>
+
+        <!-- Form for adding events -->
+        <form id="event-form">
+            <label for="event-title">Event Title:</label>
+            <input type="text" id="event-title" required>
+            <label for="event-date">Event Date:</label>
+            <input type="date" id="event-date" required>
+            <button type="button" onclick="addEvent()">Add Event</button>
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2024 5K001 (Skool)</p>
+    </footer>
+
+    <!-- FullCalendar Initialization Script -->
+    <script>
+        $(document).ready(function() {
+            $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                events: [
+                    {
+                        title: 'Event 1',
+                        start: '2024-01-01'
+                    },
+                    {
+                        title: 'Event 2',
+                        start: '2024-01-05'
+                    },
+                    // Add more events as needed
+                ]
+            });
+        });
+
+        function addEvent() {
+            var title = $('#event-title').val();
+            var date = $('#event-date').val();
+
+            if (title && date) {
+                $('#calendar').fullCalendar('renderEvent', {
+                    title: title,
+                    start: date,
+                }, true); // true means "stick" the event
+            }
+
+            // Clear the form
+            $('#event-title').val('');
+            $('#event-date').val('');
+        }
+    </script>
+</body>
+</html>
