@@ -48,8 +48,16 @@
         <p>&copy; 2024 5K001 (Skool)</p>
     </footer>
     <script>
-        // Call setUsername function on page load
-        setUsername();
+        // Get the username from localStorage
+        const storedUsername = localStorage.getItem('username');
+        const welcomeMessage = document.getElementById('welcome-message');
+
+        // Display a welcome message with the username if available
+        if (storedUsername) {
+            welcomeMessage.textContent = `Welcome, ${storedUsername}!`;
+        } else {
+            welcomeMessage.textContent = 'Welcome, User!';
+        }
 
         // Function to add a new note
         function addNote() {
@@ -68,13 +76,6 @@
                 // Clear the input field
                 noteInput.value = '';
             }
-        }
-
-        // Get the username from localStorage and display a welcome message
-        const storedUsername = localStorage.getItem('username');
-        const welcomeMessage = document.getElementById('welcome-message');
-        if (storedUsername) {
-            welcomeMessage.textContent = `Welcome, ${storedUsername}!`;
         }
     </script>
 </body>
