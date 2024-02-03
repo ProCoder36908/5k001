@@ -45,7 +45,7 @@
         <form id="task-form">
             <label for="task">New Task:</label>
             <input type="text" id="task" required>
-            <button type="submit">Add Task</button>
+            <button type="button" onclick="addTask()">Add Task</button>
         </form>
     </section>
     <footer>
@@ -93,7 +93,7 @@
                 });
 
                 // Set the content of the list item
-                listItem.innerHTML = `${emoji} ${taskTitle}`;
+                listItem.innerHTML = `<span>${emoji} ${taskTitle}</span>`;
                 
                 // Append checkmark and delete button to the list item
                 listItem.appendChild(checkmark);
