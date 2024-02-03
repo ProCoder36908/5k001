@@ -28,6 +28,7 @@
     </nav>
     <section>
         <!-- Your calendar content goes here -->
+        <div id="calendar"></div>
     </section>
     <footer>
         <p>&copy; 2024 5K001 (Skool)</p>
@@ -39,6 +40,23 @@
         // Load calendar events on page load
         const calendarEvents = loadCalendarEvents();
         // Use the calendarEvents array as needed in your calendar page
+
+        // You can use a calendar library like FullCalendar to display and manage events.
+        // Here's an example of how you might initialize FullCalendar:
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const calendarEl = document.getElementById('calendar');
+
+            const calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                events: calendarEvents
+            });
+
+            calendar.render();
+        });
     </script>
+    <!-- Include the FullCalendar library -->
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid/main.js"></script>
 </body>
 </html>
