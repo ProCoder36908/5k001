@@ -40,6 +40,15 @@ nav ul li {
 }
 
 /* Light mode */
+.light-mode body {
+    background-color: #fff;
+    color: #333;
+}
+
+.light-mode header {
+    background-color: #333;
+}
+
 .light-mode nav {
     background-color: #eee;
     color: #333;
