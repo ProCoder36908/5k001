@@ -38,4 +38,29 @@
     </section>
     <footer>
         <p>&copy; 2024 5K001 (Skool)</p>
-   
+    </footer>
+    <script>
+        // Call setUsername function on page load
+        setUsername();
+
+        // Function to change the username
+        function changeUsername() {
+            const newUsername = document.getElementById('username').value.trim();
+
+            if (newUsername !== '') {
+                // Save the new username (you can use localStorage or another method)
+                localStorage.setItem('username', newUsername);
+                setUsername(); // Update displayed username
+                alert(`Username changed to: ${newUsername}`);
+            }
+        }
+
+        // Function to clear all data
+        function clearAllData() {
+            // Clear all stored data (you can use localStorage.clear() or another method)
+            localStorage.clear();
+            alert('All data cleared!');
+        }
+    </script>
+</body>
+</html>
