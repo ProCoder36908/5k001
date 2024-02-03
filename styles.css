@@ -40,14 +40,23 @@ nav ul li {
 }
 
 /* Light mode */
-.light-mode {
-    background-color: #fff;
+.light-mode nav {
+    background-color: #eee;
     color: #333;
 }
 
 /* Dark mode */
-.dark-mode {
+.dark-mode body {
     background-color: #333;
+    color: #fff;
+}
+
+.dark-mode header {
+    background-color: #555;
+}
+
+.dark-mode nav {
+    background-color: #555;
     color: #fff;
 }
 
