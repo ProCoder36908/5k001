@@ -6,6 +6,21 @@
     <title>5K001 (Skool) - To-Do List</title>
     <style>
         /* Add your CSS styles here */
+        .task {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .checkmark, .delete {
+            cursor: pointer;
+            margin-right: 8px;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
     </style>
 </head>
 <body>
@@ -30,7 +45,7 @@
         <form id="task-form">
             <label for="task">New Task:</label>
             <input type="text" id="task" required>
-            <button type="button" onclick="addTask()">Add Task</button>
+            <button type="submit">Add Task</button>
         </form>
     </section>
     <footer>
@@ -56,12 +71,33 @@
             if (taskTitle !== '') {
                 // Create a new list item
                 const listItem = document.createElement('li');
+                listItem.classList.add('task');
 
                 // Generate a random emoji
                 const emoji = getRandomEmoji();
 
+                // Create a checkmark element
+                const checkmark = document.createElement('span');
+                checkmark.innerHTML = '✔️';
+                checkmark.classList.add('checkmark');
+                checkmark.addEventListener('click', function() {
+                    listItem.classList.toggle('completed');
+                });
+
+                // Create a delete (red x) element
+                const deleteButton = document.createElement('span');
+                deleteButton.innerHTML = '❌';
+                deleteButton.classList.add('delete');
+                deleteButton.addEventListener('click', function() {
+                    listItem.remove();
+                });
+
                 // Set the content of the list item
                 listItem.innerHTML = `${emoji} ${taskTitle}`;
+                
+                // Append checkmark and delete button to the list item
+                listItem.appendChild(checkmark);
+                listItem.appendChild(deleteButton);
 
                 // Append the list item to the task list
                 taskList.appendChild(listItem);
