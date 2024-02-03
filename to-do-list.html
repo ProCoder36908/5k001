@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5K001 (Skool) - To-Do List</title>
+    <style>
+        /* Add your CSS styles here */
+    </style>
+</head>
+<body>
+    <header>
+        <h1>To-Do List</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="calendar.html">Calendar</a></li>
+            <li><a href="homework.html">Homework</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ul>
+    </nav>
+    <section id="to-do-list-content">
+        <!-- To-Do List container -->
+        <ul id="task-list">
+            <!-- Existing tasks will go here -->
+        </ul>
+
+        <!-- Form for adding tasks -->
+        <form id="task-form">
+            <label for="task">New Task:</label>
+            <input type="text" id="task" required>
+            <button type="button" onclick="addTask()">Add Task</button>
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2024 5K001 (Skool)</p>
+    </footer>
+
+    <script>
+        // Function to generate a random emoji
+        function getRandomEmoji() {
+            const emojis = ['😊', '📚', '✅', '🎉', '📆', '🚀', '💡', '🔍', '📌', '📝'];
+            const randomIndex = Math.floor(Math.random() * emojis.length);
+            return emojis[randomIndex];
+        }
+
+        // Function to add a new task
+        function addTask() {
+            const taskInput = document.getElementById('task');
+            const taskList = document.getElementById('task-list');
+
+            // Get the task title from the input
+            const taskTitle = taskInput.value.trim();
+
+            if (taskTitle !== '') {
+                // Create a new list item
+                const listItem = document.createElement('li');
+
+                // Generate a random emoji
+                const emoji = getRandomEmoji();
+
+                // Set the content of the list item
+                listItem.innerHTML = `${emoji} ${taskTitle}`;
+
+                // Append the list item to the task list
+                taskList.appendChild(listItem);
+
+                // Clear the input field
+                taskInput.value = '';
+            }
+        }
+    </script>
+</body>
+</html>
