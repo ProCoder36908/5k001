@@ -28,6 +28,9 @@
     </nav>
     <section>
         <!-- Your to-do list content goes here -->
+        <ul id="tasks-list"></ul>
+        <input type="text" id="new-task" placeholder="Add a new task">
+        <button onclick="addTask()">Add Task</button>
     </section>
     <footer>
         <p>&copy; 2024 5K001 (Skool)</p>
@@ -38,7 +41,45 @@
 
         // Load tasks on page load
         const tasks = loadTasks();
-        // Use the tasks array as needed in your to-do list page
+        displayTasks(tasks);
+
+        // Function to add a new task
+        function addTask() {
+            const newTaskInput = document.getElementById('new-task');
+            const taskText = newTaskInput.value.trim();
+
+            if (taskText !== '') {
+                tasks.push(taskText);
+                saveTasks(tasks);
+                displayTasks(tasks);
+                newTaskInput.value = '';
+            }
+        }
+
+        // Function to display tasks
+        function displayTasks(tasks) {
+            const tasksList = document.getElementById('tasks-list');
+            tasksList.innerHTML = '';
+            
+            tasks.forEach((task, index) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = task;
+
+                const removeButton = document.createElement('button');
+                removeButton.textContent = 'Remove';
+                removeButton.onclick = () => removeTask(index);
+
+                listItem.appendChild(removeButton);
+                tasksList.appendChild(listItem);
+            });
+        }
+
+        // Function to remove a task
+        function removeTask(index) {
+            tasks.splice(index, 1);
+            saveTasks(tasks);
+            displayTasks(tasks);
+        }
     </script>
 </body>
 </html>
