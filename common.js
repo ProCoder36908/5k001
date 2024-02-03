@@ -1,13 +1,16 @@
 // common.js
 
-// Function to generate a random emoji
-function getRandomEmoji() {
-    const emojis = ['😊', '📚', '✅', '🎉', '📆', '🚀', '💡', '🔍', '📌', '📝'];
-    const randomIndex = Math.floor(Math.random() * emojis.length);
-    return emojis[randomIndex];
+// Function to toggle between light and dark mode
+function toggleMode() {
+    const body = document.body;
+    const nav = document.querySelector('nav');
+
+    // Toggle dark mode class on body and nav
+    body.classList.toggle('dark-mode');
+    nav.classList.toggle('dark-mode');
 }
 
-// Function to set the username
+// Function to set the username in localStorage
 function setUsername() {
     const storedUsername = localStorage.getItem('username');
     const userDisplay = document.getElementById('user-display');
@@ -17,9 +20,4 @@ function setUsername() {
     }
 }
 
-// Function to toggle between light mode and dark mode
-function toggleMode() {
-    const body = document.body;
-    body.classList.toggle('light-mode');
-    body.classList.toggle('dark-mode');
-}
+// Add more common functions as needed
