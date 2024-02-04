@@ -9,7 +9,6 @@
 
     <style>
         /* Add your styles here */
-    
     </style>
 </head>
 <body class="light-mode">
@@ -27,7 +26,6 @@
         </ul>
     </nav>
     <section id="settings-content">
-        <!-- Form for changing username and clearing data -->
         <form id="settings-form">
             <label for="username">Change Username:</label>
             <input type="text" id="username" required>
@@ -51,16 +49,14 @@
             const newUsername = document.getElementById('username').value.trim();
 
             if (newUsername !== '') {
-                // Save the new username (you can use localStorage or another method)
                 localStorage.setItem('username', newUsername);
-                setUsername(); // Update displayed username
+                setUsername();
                 alert(`Username changed to: ${newUsername}`);
             }
         }
 
         // Function to clear all data
         function clearAllData() {
-            // Clear all stored data (you can use localStorage.clear() or another method)
             localStorage.clear();
             alert('All data cleared!');
         }
