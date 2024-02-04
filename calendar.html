@@ -48,16 +48,20 @@
 
         // You can use a calendar library like FullCalendar to display and manage events.
         // Here's an example of how you might initialize FullCalendar:
-
         document.addEventListener('DOMContentLoaded', function() {
             const calendarEl = document.getElementById('calendar');
-
-            const calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                events: calendarEvents
-            });
-
-            calendar.render();
+            
+            // Ensure that FullCalendar is defined before creating the calendar
+            if (typeof FullCalendar !== 'undefined') {
+                const calendar = new FullCalendar.Calendar(calendarEl, {
+                    initialView: 'dayGridMonth',
+                    events: calendarEvents
+                });
+                
+                calendar.render();
+            } else {
+                console.error('FullCalendar is not defined. Make sure the library is loaded.');
+            }
         });
     </script>
 </body>
