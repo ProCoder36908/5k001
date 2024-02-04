@@ -14,8 +14,7 @@
 <body class="light-mode">
     <header>
         <h1>Dashboard</h1>
-        <!-- Display welcome message with the username -->
-        <p id="welcome-message"></p>
+        <p id="welcome-message"></p> <!-- Added an empty element for the welcome message -->
         <button onclick="toggleMode()">Toggle Mode</button>
     </header>
     <nav>
@@ -29,14 +28,9 @@
     </nav>
     <section>
         <!-- Your dashboard content goes here -->
-
-        <!-- Notes Section -->
         <div id="notes-section">
             <h2>My Notes</h2>
-            <ul id="notes-list">
-                <!-- Existing notes will go here -->
-            </ul>
-            <!-- Form for adding notes -->
+            <ul id="notes-list"></ul>
             <form id="note-form">
                 <label for="note">Add a Note:</label>
                 <input type="text" id="note" required>
@@ -66,14 +60,11 @@
 
             const newNote = noteInput.value.trim();
             if (newNote !== '') {
-                // Create a new list item
                 const listItem = document.createElement('li');
                 listItem.textContent = newNote;
 
-                // Append the new note to the list
                 notesList.appendChild(listItem);
 
-                // Clear the input field
                 noteInput.value = '';
             }
         }
