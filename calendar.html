@@ -44,20 +44,19 @@
 
         // Load calendar events on page load
         const calendarEvents = loadCalendarEvents();
-        // Use the calendarEvents array as needed in your calendar page
 
         // You can use a calendar library like FullCalendar to display and manage events.
         // Here's an example of how you might initialize FullCalendar:
         document.addEventListener('DOMContentLoaded', function() {
             const calendarEl = document.getElementById('calendar');
-            
+
             // Ensure that FullCalendar is defined before creating the calendar
             if (typeof FullCalendar !== 'undefined') {
                 const calendar = new FullCalendar.Calendar(calendarEl, {
                     initialView: 'dayGridMonth',
                     events: calendarEvents
                 });
-                
+
                 calendar.render();
             } else {
                 console.error('FullCalendar is not defined. Make sure the library is loaded.');
