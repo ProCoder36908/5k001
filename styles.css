@@ -1,8 +1,15 @@
-/* Add your styles here */
-
 /* Dark Mode Styles */
 body.dark-mode {
     background-color: #121212;
+    color: #ffffff;
+}
+
+header.dark-mode {
+    background-color: #333333;
+}
+
+header.dark-mode button {
+    background-color: #555555;
     color: #ffffff;
 }
 
@@ -11,6 +18,11 @@ nav.dark-mode {
 }
 
 nav.dark-mode a {
+    color: #ffffff;
+}
+
+section.dark-mode {
+    background-color: #1e1e1e;
     color: #ffffff;
 }
 
