@@ -6,10 +6,6 @@
     <title>5K001 (Skool) - Settings</title>
     <script src="common.js"></script>
     <link rel="stylesheet" href="styles.css">
-
-    <style>
-        /* Add your styles here */
-    </style>
 </head>
 <body class="light-mode">
     <header>
@@ -19,10 +15,10 @@
     </header>
     <nav>
         <ul>
-            <li><a href="index.html">Dashboard</a></li>
-            <li><a href="calendar.html">Calendar</a></li>
-            <li><a href="homework.html">Homework</a></li>
-            <li><a href="to-do-list.html">To-Do List</a></li>
+            <li><button onclick="navigate('index.html')">Dashboard</button></li>
+            <li><button onclick="navigate('calendar.html')">Calendar</button></li>
+            <li><button onclick="navigate('homework.html')">Homework</button></li>
+            <li><button onclick="navigate('to-do-list.html')">To-Do List</button></li>
         </ul>
     </nav>
     <section id="settings-content">
@@ -30,9 +26,7 @@
             <label for="username">Change Username:</label>
             <input type="text" id="username" required>
             <button type="button" onclick="changeUsername()">Change</button>
-
             <br>
-
             <label for="clear-data">Clear All Data:</label>
             <button type="button" onclick="clearAllData()">Clear Data</button>
         </form>
@@ -41,25 +35,9 @@
         <p>&copy; 2024 5K001 (Skool)</p>
     </footer>
     <script>
-        // Call setUsername function on page load
-        setUsername();
-
-        // Function to change the username
-        function changeUsername() {
-            const newUsername = document.getElementById('username').value.trim();
-
-            if (newUsername !== '') {
-                localStorage.setItem('username', newUsername);
-                setUsername();
-                alert(`Username changed to: ${newUsername}`);
-            }
-        }
-
-        // Function to clear all data
-        function clearAllData() {
-            localStorage.clear();
-            alert('All data cleared!');
-        }
+        initializePage();
+        const settingsForm = document.getElementById('settings-form');
+        addSettingsListeners(settingsForm);
     </script>
 </body>
 </html>
