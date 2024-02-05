@@ -51,11 +51,15 @@ section.dark-mode {
 #notes-list {
     list-style: none;
     padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 #note-form {
     display: flex;
     gap: 10px;
+    align-items: center; /* Align items vertically in the center */
 }
 
 #note {
@@ -73,3 +77,43 @@ section.dark-mode {
 #note-form button:hover {
     background-color: #45a049;
 }
+
+/* Additional Styles for To-Do List */
+#tasks-list {
+    list-style: none;
+    padding: 0;
+}
+
+#new-task {
+    padding: 10px;
+    margin-right: 10px;
+    width: 60%;
+}
+
+#tasks-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #555555;
+    margin-bottom: 10px;
+}
+
+#tasks-list button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px;
+    cursor: pointer;
+    border: none;
+}
+
+#tasks-list button:hover {
+    background-color: #45a049;
+}
+
+/* Additional Styles for Calendar */
+#calendar {
+    margin-top: 20px;
+}
+
+/* Add more styles as needed */
