@@ -41,9 +41,35 @@ nav.dark-mode a:hover {
 section.dark-mode {
     background-color: #444444;
     color: #ffffff;
+    padding: 20px; /* Add padding to the section */
 }
 
-footer.dark-mode {
-    background-color: #555555;
-    color: #ffffff;
+#notes-section h2 {
+    margin-bottom: 10px;
+}
+
+#notes-list {
+    list-style: none;
+    padding: 0;
+}
+
+#note-form {
+    display: flex;
+    gap: 10px;
+}
+
+#note {
+    flex: 1;
+}
+
+#note-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+}
+
+#note-form button:hover {
+    background-color: #45a049;
 }
