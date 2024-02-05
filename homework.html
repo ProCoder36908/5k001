@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="styles.css">
 
     <style>
-        /* Add your styles here */
-        /* You can add more specific styles for the homework page */
         .homework-container {
             max-width: 600px;
             margin: 0 auto;
@@ -35,24 +33,20 @@
     </header>
     <nav>
         <ul>
-            <li><a href="index.html">Dashboard</a></li>
-            <li><a href="calendar.html">Calendar</a></li>
-            <li><a href="homework.html">Homework</a></li>
-            <li><a href="to-do-list.html">To-Do List</a></li>
-            <li><a href="settings.html">Settings</a></li>
+            <li><button onclick="navigate('index.html')">Dashboard</button></li>
+            <li><button onclick="navigate('calendar.html')">Calendar</button></li>
+            <li><button onclick="navigate('homework.html')">Homework</button></li>
+            <li><button onclick="navigate('to-do-list.html')">To-Do List</button></li>
+            <li><button onclick="navigate('settings.html')">Settings</button></li>
         </ul>
     </nav>
     <section class="homework-container">
         <h2>My Homework</h2>
         <form id="homework-form">
-            <!-- Initial subject input -->
             <div class="subject-input">
                 <label for="subject1">Subject 1:</label>
                 <input type="text" id="subject1" required>
             </div>
-
-            <!-- Additional subject inputs will be added dynamically here -->
-
             <button type="button" class="add-more-btn" onclick="addSubject()">Add More</button>
         </form>
     </section>
@@ -60,25 +54,9 @@
         <p>&copy; 2024 5K001 (Skool)</p>
     </footer>
     <script>
-        // Call setUsername function on page load
-        setUsername();
-
-        // Function to add more subject inputs
-        function addSubject() {
-            const homeworkForm = document.getElementById('homework-form');
-            const subjectCount = homeworkForm.querySelectorAll('.subject-input').length + 1;
-
-            // Create a new subject input
-            const newSubjectInput = document.createElement('div');
-            newSubjectInput.classList.add('subject-input');
-            newSubjectInput.innerHTML = `
-                <label for="subject${subjectCount}">Subject ${subjectCount}:</label>
-                <input type="text" id="subject${subjectCount}" required>
-            `;
-
-            // Append the new subject input to the form
-            homeworkForm.insertBefore(newSubjectInput, document.querySelector('.add-more-btn'));
-        }
+        initializePage();
+        const homeworkForm = document.getElementById('homework-form');
+        addDynamicSubjectInput(homeworkForm);
     </script>
 </body>
 </html>
