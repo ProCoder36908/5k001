@@ -17,8 +17,25 @@ nav.dark-mode {
     background-color: #555555;
 }
 
+nav.dark-mode ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+}
+
+nav.dark-mode li {
+    margin-right: 10px;
+}
+
 nav.dark-mode a {
     color: #ffffff;
+    text-decoration: none;
+    padding: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+nav.dark-mode a:hover {
+    transform: scale(1.1);
 }
 
 section.dark-mode {
