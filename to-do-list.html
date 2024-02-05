@@ -6,10 +6,6 @@
     <title>5K001 (Skool) - To-Do List</title>
     <script src="common.js"></script>
     <link rel="stylesheet" href="styles.css">
-
-    <style>
-        /* Add your styles here */
-    </style>
 </head>
 <body class="light-mode">
     <header>
@@ -19,15 +15,14 @@
     </header>
     <nav>
         <ul>
-            <li><a href="index.html">Dashboard</a></li>
-            <li><a href="calendar.html">Calendar</a></li>
-            <li><a href="homework.html">Homework</a></li>
-            <li><a href="to-do-list.html">To-Do List</a></li>
-            <li><a href="settings.html">Settings</a></li>
+            <li><button onclick="navigate('index.html')">Dashboard</button></li>
+            <li><button onclick="navigate('calendar.html')">Calendar</button></li>
+            <li><button onclick="navigate('homework.html')">Homework</button></li>
+            <li><button onclick="navigate('to-do-list.html')">To-Do List</button></li>
+            <li><button onclick="navigate('settings.html')">Settings</button></li>
         </ul>
     </nav>
     <section>
-        <!-- Your to-do list content goes here -->
         <ul id="tasks-list"></ul>
         <input type="text" id="new-task" placeholder="Add a new task">
         <button onclick="addTask()">Add Task</button>
@@ -36,16 +31,14 @@
         <p>&copy; 2024 5K001 (Skool)</p>
     </footer>
     <script>
-        // Call setUsername function on page load
-        setUsername();
-
-        // Load tasks on page load
+        initializePage();
+        const tasksList = document.getElementById('tasks-list');
+        const newTaskInput = document.getElementById('new-task');
         const tasks = loadTasks();
+
         displayTasks(tasks);
 
-        // Function to add a new task
         function addTask() {
-            const newTaskInput = document.getElementById('new-task');
             const taskText = newTaskInput.value.trim();
 
             if (taskText !== '') {
@@ -57,36 +50,35 @@
             }
         }
 
-        // Function to display tasks
         function displayTasks(tasks) {
-            const tasksList = document.getElementById('tasks-list');
             tasksList.innerHTML = '';
 
             tasks.forEach((task, index) => {
-                const listItem = document.createElement('li');
-                listItem.innerHTML = `${task.text} ${task.emoji} 
-                <button onclick="removeTask(${index})">&#10006;</button>
-                <button onclick="completeTask(${index})">&#10004;</button>`;
-
+                const listItem = createTaskListItem(task, index);
                 tasksList.appendChild(listItem);
             });
         }
 
-        // Function to remove a task
+        function createTaskListItem(task, index) {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `${task.text} ${task.emoji} 
+                <button onclick="removeTask(${index})">&#10006;</button>
+                <button onclick="completeTask(${index})">&#10004;</button>`;
+            return listItem;
+        }
+
         function removeTask(index) {
             tasks.splice(index, 1);
             saveTasks(tasks);
             displayTasks(tasks);
         }
 
-        // Function to mark a task as complete
         function completeTask(index) {
             tasks[index].completed = true;
             saveTasks(tasks);
             displayTasks(tasks);
         }
 
-        // Function to get a random emoji
         function getRandomEmoji() {
             const emojis = ['😊', '🚀', '📚', '✅', '🎉', '💡'];
             const randomIndex = Math.floor(Math.random() * emojis.length);
