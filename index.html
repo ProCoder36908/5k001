@@ -6,28 +6,23 @@
     <title>5K001 (Skool) - Dashboard</title>
     <script src="common.js"></script>
     <link rel="stylesheet" href="styles.css">
-
-    <style>
-        /* Add your styles here */
-    </style>
 </head>
 <body class="light-mode">
     <header>
         <h1>Dashboard</h1>
-        <p id="welcome-message"></p> <!-- Added an empty element for the welcome message -->
+        <p id="welcome-message"></p>
         <button onclick="toggleMode()">Toggle Mode</button>
     </header>
     <nav>
         <ul>
-            <li><button onclick="location.href='index.html'">Dashboard</button></li>
-            <li><button onclick="location.href='calendar.html'">Calendar</button></li>
-            <li><button onclick="location.href='homework.html'">Homework</button></li>
-            <li><button onclick="location.href='to-do-list.html'">To-Do List</button></li>
-            <li><button onclick="location.href='settings.html'">Settings</button></li>
+            <li><button onclick="navigate('index.html')">Dashboard</button></li>
+            <li><button onclick="navigate('calendar.html')">Calendar</button></li>
+            <li><button onclick="navigate('homework.html')">Homework</button></li>
+            <li><button onclick="navigate('to-do-list.html')">To-Do List</button></li>
+            <li><button onclick="navigate('settings.html')">Settings</button></li>
         </ul>
     </nav>
     <section>
-        <!-- Your dashboard content goes here -->
         <div id="notes-section">
             <h2>My Notes</h2>
             <ul id="notes-list"></ul>
@@ -42,29 +37,18 @@
         <p>&copy; 2024 5K001 (Skool)</p>
     </footer>
     <script>
-        // Get the username from localStorage
-        const storedUsername = localStorage.getItem('username');
-        const welcomeMessage = document.getElementById('welcome-message');
+        initializePage('Welcome, User!');
+        setWelcomeMessage();
 
-        // Display a welcome message with the username if available
-        if (storedUsername) {
-            welcomeMessage.textContent = `Welcome, ${storedUsername}!`;
-        } else {
-            welcomeMessage.textContent = 'Welcome, User!';
-        }
-
-        // Function to add a new note
         function addNote() {
             const noteInput = document.getElementById('note');
             const notesList = document.getElementById('notes-list');
-
             const newNote = noteInput.value.trim();
+
             if (newNote !== '') {
-                const listItem = document.createElement('li');
-                listItem.textContent = newNote;
-
+                const listItem = createListItem(newNote);
                 notesList.appendChild(listItem);
-
+                saveNotes();
                 noteInput.value = '';
             }
         }
