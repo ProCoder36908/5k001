@@ -13,51 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid/main.js"></script>
 
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
-
-        header {
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            text-align: center;
-        }
-
-        nav {
-            background-color: #555;
-            color: white;
-            padding: 10px;
-            text-align: center;
-        }
-
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin-right: 10px;
-        }
-
-        section {
-            padding: 20px;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
+        /* Add your additional styles here if needed */
     </style>
 </head>
 <body class="light-mode">
@@ -68,37 +24,23 @@
     </header>
     <nav>
         <ul>
-            <li><a href="index.html">Dashboard</a></li>
-            <li><a href="calendar.html">Calendar</a></li>
-            <li><a href="homework.html">Homework</a></li>
-            <li><a href="to-do-list.html">To-Do List</a></li>
-            <li><a href="settings.html">Settings</a></li>
+            <li><button onclick="navigate('index.html')">Dashboard</button></li>
+            <li><button onclick="navigate('calendar.html')">Calendar</button></li>
+            <li><button onclick="navigate('homework.html')">Homework</button></li>
+            <li><button onclick="navigate('to-do-list.html')">To-Do List</button></li>
+            <li><button onclick="navigate('settings.html')">Settings</button></li>
         </ul>
     </nav>
     <section>
-        <!-- Your calendar content goes here -->
         <div id="calendar"></div>
     </section>
     <footer>
         <p>&copy; 2024 5K001 (Skool)</p>
     </footer>
     <script>
-        // Call setUsername function on page load
-        setUsername();
-
-        // Load calendar events on page load
-        const calendarEvents = loadCalendarEvents();
-
-        // Initialize FullCalendar without using modules
-        document.addEventListener('DOMContentLoaded', function() {
-            const calendarEl = document.getElementById('calendar');
-            const calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                events: calendarEvents
-            });
-
-            calendar.render();
-        });
+        initializePage();
+        const calendarEl = document.getElementById('calendar');
+        renderCalendar(calendarEl);
     </script>
 </body>
 </html>
